@@ -1,8 +1,11 @@
 {
   "name": "ps-redux",
   "description": "React and Redux Pluralsight course by Cory House",
-  "scripts": {},
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.dev.js --port 4000"
+  },
   "dependencies": {
+    "@typescript-eslint/parser": "^2.1.0",
     "bootstrap": "4.3.1",
     "immer": "2.1.3",
     "prop-types": "15.7.2",
@@ -13,7 +16,8 @@
     "react-toastify": "4.5.2",
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
-    "reselect": "4.0.0"
+    "reselect": "4.0.0",
+    "typescript": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "7.3.4",
@@ -34,6 +38,12 @@
     "jest": "24.5.0",
     "json-server": "0.14.2",
     "mini-css-extract-plugin": "0.5.0",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4",
     "node-fetch": "^2.3.0",
     "npm-run-all": "4.1.5",
     "postcss-loader": "3.0.0",
@@ -50,5 +60,44 @@
   },
   "engines": {
     "node": ">=8"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "react",
+      "@typescript-eslint",
+      "prettier"
+    ],
+    "env": {
+      "browser": true,
+      "jasmine": true,
+      "jest": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true
+        }
+      ]
+    },
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "detect"
+      }
+    },
+    "parser": "@typescript-eslint/parser"
   }
 }
